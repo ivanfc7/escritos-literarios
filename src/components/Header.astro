@@ -1,20 +1,44 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
-import ThemeToggle from './ThemeToggle.astro'
-import '../styles/header.css';
+import ThemeToggle from './ThemeToggle.astro';
+import '../styles/header.css'; 
 ---
 
 <header class="main-header">
-	<nav class="nav-container">
-		<h2 class="logo"><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Portada</HeaderLink>
-			<HeaderLink href="/cuento">Cuentos</HeaderLink>
-			<HeaderLink href="/poema">Poemas</HeaderLink>
-		</div>
-		<div class="nav-preferences">
+    <nav class="nav-container">
+        <div class="nav-preferences">
             <ThemeToggle />
         </div>
-	</nav>
+
+        <h2 class="logo"><a href="/">{SITE_TITLE}</a></h2>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <div class="internal-links" id="internal-links">
+            <HeaderLink href="/">Portada</HeaderLink>
+            <HeaderLink href="/cuento">Cuentos</HeaderLink>
+            <HeaderLink href="/poema">Poemas</HeaderLink>
+        </div>
+    </nav>
 </header>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const internalLinks = document.getElementById('internal-links');
+
+    menuToggle?.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        
+        // Alternamos el estado del atributo para accesibilidad
+        menuToggle.setAttribute('aria-expanded', !isExpanded ? 'true' : 'false');
+        
+        // Alternamos la clase activa en el menú y en el botón
+        internalLinks?.classList.toggle('menu-abierto');
+        menuToggle.classList.toggle('toggle-activo');
+    });
+</script>

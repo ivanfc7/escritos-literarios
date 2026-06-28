@@ -1,9 +1,7 @@
 /* Header general */
 .main-header {
-    /* REEMPLAZADO: Ahora usa la variable translúcida del tema actual */
-    background-color: var(--bg-header); 
+    background-color: var(--bg-header);
     backdrop-filter: blur(8px);
-    /* REEMPLAZADO: Borde adaptativo (oscuro en claro, claro en oscuro) */
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
@@ -11,27 +9,47 @@
     padding: 1.5rem 2rem;
     /* Agregamos background-color a la transición para que cambie suavemente */
     transition: background-color 0.3s ease, border-color 0.3s ease, all 0.3s ease;
-  }
+}
 
 /* Contenedor de navegación */
 .nav-container {
-    max-width: 1200px; /* Ampliamos un poco el espacio total */
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 1.5rem;
-  }
-  
-  /* Contenedor de preferencias (Temas / Idiomas) */
-  .nav-preferences {
+}
+
+/* Contenedor de preferencias (Temas / Idiomas) */
+.nav-preferences {
+    order: 3;
     display: flex;
     align-items: center;
-    gap: 1rem; /* Espacio por si pones el selector de idiomas al lado */
-  }
+}
+#theme-select {
+    background: none;
+    color: var(--text-main);
+    border: none;
+    cursor: pointer;
+}
+
+#theme-select>option:nth-child(1),
+option:nth-child(2),
+option:nth-child(3) {
+    background-color: var(--bg-header);
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+#icono-theme {
+    color: var(--border-color);
+}
+
 /* El logo / Nombre del sitio */
 .logo {
+    order: 1;
     margin: 0;
     font-family: var(--font-serif);
     font-size: 1.6rem;
@@ -51,9 +69,9 @@
 
 /* Contenedor de enlaces */
 .internal-links {
+    order: 2;
     display: flex;
     gap: 2rem;
-    align-items: center;
 }
 
 /* Estilos para tus HeaderLinks (Afectará a las etiquetas <a> dentro del div) */
@@ -104,9 +122,10 @@
     background-color: var(--accent);
 }
 
-#icono-theme{
-    color: var(--border-color);
+.menu-toggle {
+    display: none;
 }
+
 /* --- RESPONSIVE / MEDIA QUERIES --- */
 @media (max-width: 600px) {
     .main-header {
@@ -114,26 +133,95 @@
     }
 
     .nav-container {
-        flex-direction: column; /* Apila los elementos en vertical */
         gap: 1rem;
         text-align: center;
-      }
-    
-      .internal-links {
-        justify-content: center;
-        gap: 1.5rem;
-      }
-    
-      .nav-preferences {
-        justify-content: center;
-        width: 100%;
-        margin-top: 0.5rem;
-      }
-    .logo {
-        font-size: 1.4rem;
     }
 
+    .nav-preferences {
+        order: 3;
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .logo {
+        order: 2;
+        flex: 2;
+        text-align: center;
+        font-size: 1.3rem;
+    }
+
+    .menu-toggle {
+        order: 1;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        /* Estilos del botón transparente */
+        background: none;
+        border: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 110;
+    }
+
+    /* Las 3 rayitas de la hamburguesa */
+    .menu-toggle .bar {
+        width: 22px;
+        height: 2px;
+        background-color: var(--text-main);
+        transition: all 0.3s ease;
+    }
+
+    .internal-links {
+        order: 4;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-header);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    /* Estilos de los links dentro del menú móvil */
     .internal-links a {
-        font-size: 0.85rem;
+        width: 100%;
+        text-align: center;
+        padding: 1.2rem 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.02);
+        display: block;
+    }
+
+    .internal-links a::after {
+        display: none;
+    }
+
+    /* --- CLASE ACTIVA (Cuando se pulsa el botón) --- */
+    .internal-links.menu-abierto {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    /* Animación de las rayitas convirtiéndose en una "X" */
+    .menu-toggle.toggle-activo .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.toggle-activo .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.toggle-activo .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
 }

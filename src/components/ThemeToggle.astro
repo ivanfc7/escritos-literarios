@@ -1,36 +1,70 @@
 ---
+import '../styles/theme.css';
+
 const themes = [
-    {value: 'light', label: 'Claro'},
-    {value: 'dark', label: 'Oscuro'},
-    {value: 'sepia', label: 'Sepia'}
+    { value: 'light', label: 'Claro', icon: 'fa-sun' },
+    { value: 'dark', label: 'Oscuro', icon: 'fa-moon' },
+    { value: 'sepia', label: 'Sepia', icon: 'fa-book-open' }
 ]
 ---
 
-<select id="theme-select" aria-label="Seleccionar Tema">
+<div class="theme-dropdown">
+  <button class="dropdown-trigger" id="theme-btn" aria-label="Cambiar tema" aria-haspopup="listbox">
+    <i class="fa-solid fa-palette"></i>
+  </button>
+
+  <ul class="dropdown-menu" id="theme-menu" role="listbox">
     {themes.map(theme => (
-        <option value={theme.value} title={theme.label}><i class="fa-soli fa-palette icono-theme"></i></option>
+      <li role="option" data-value={theme.value} class="theme-option">
+        <i class={`fa-solid ${theme.icon}`}></i>
+        <span>{theme.label}</span>
+      </li>
     ))}
-</select>
+  </ul>
+</div>
 
 <script>
-    const select = document.getElementById('theme-select') as HTMLSelectElement;
-    const root = document.documentElement;
-  
-    // 1. Leer el tema guardado anteriormente o usar el por defecto
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    
-    // 2. Aplicar el tema al cargar la página y sincronizar el select
-    root.setAttribute('data-theme', savedTheme);
-    if (select) select.value = savedTheme;
-  
-    // 3. Escuchar los cambios del usuario
-    select?.addEventListener('change', (e) => {
-      const target = e.target as HTMLSelectElement;
-      const selectedTheme = target.value;
+  const trigger = document.getElementById('theme-btn');
+  const menu = document.getElementById('theme-menu');
+  const options = document.querySelectorAll('.theme-option');
+  const root = document.documentElement;
+
+  // 1. Cargar tema inicial
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  root.setAttribute('data-theme', savedTheme);
+  marcarActivo(savedTheme);
+
+  // 2. Abrir / Cerrar menú
+  trigger?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu?.classList.toggle('show');
+  });
+
+  // Cerrar si hacen clic fuera del menú
+  document.addEventListener('click', () => {
+    menu?.classList.remove('show');
+  });
+
+  // 3. Cambiar tema al hacer clic en una opción
+  options.forEach(option => {
+    option.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLLIElement;
+      const selectedTheme = target.getAttribute('data-value') || 'light';
       
-      // Cambia el atributo en el HTML de inmediato
       root.setAttribute('data-theme', selectedTheme);
-      // Guarda para futuras visitas
       localStorage.setItem('theme', selectedTheme);
+      marcarActivo(selectedTheme);
     });
+  });
+
+  // Función sutil para ponerle una palomita o estilo al tema activo
+  function marcarActivo(theme: string) {
+    options.forEach(opt => {
+      if (opt.getAttribute('data-value') === theme) {
+        opt.classList.add('active-theme');
+      } else {
+        opt.classList.remove('active-theme');
+      }
+    });
+  }
 </script>
