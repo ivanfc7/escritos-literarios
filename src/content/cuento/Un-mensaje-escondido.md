@@ -1,10 +1,11 @@
 ---
 title: 'Un mensaje escondido'
-description: 'Un mensaje escondido es un cuento de ciencia ficción publicado en el número 54 de la revista Panselinos en julio del 2026. En un mundo donde los robots acompañan a las personas en lo cotidiano de sus vidas, una organización voluntaria llamada InBot crea un nuevo modelo y hace los esfuerzos sorprendentes de distribuirlos a todo el mundo, con el cual InBot se despedide dejando ese último robot como su trabajo final. Sin embargo, muchos años después los robots al parecer comienzan a aprender vocabulario nuevo y sus mensajes comienzan a desconcertar a todo el mundo.'
+description: '«Un mensaje escondido» es un cuento de ciencia ficción publicado en el número 54 de la revista Panselinos en julio del 2026. 
+En un mundo donde los robots acompañan a las personas en lo cotidiano de sus vidas, una organización voluntaria llamada InBot crea un nuevo modelo y hace los esfuerzos sorprendentes de distribuirlos a todo el mundo, con el cual InBot se despedide dejando ese último robot como su trabajo final. Sin embargo, muchos años después los robots al parecer comienzan a aprender vocabulario nuevo y sus mensajes comienzan a desconcertar a todo el mundo.'
 pubDate: 'Jul 20 2026'
 pubIn: 'Revista Panselinos'
 pubLink: 'https://revistapanselinos.blogspot.com/2026/07/numero-54-julio-2026.html'
-heroImage: '../../assets/ilustraciones-escritos/cuento-img-2.jpg'
+heroImage: '../../assets/ilustraciones-escritos/cuento-img-2.webp'
 ---
 
 Todavía recuerdo el momento en que todo hogar tuvo la posibilidad de adquirir a los robots. Robots que durante un largo tiempo fueron exclusivos; muy pocos podían tener uno. Eso cambió cuando la organización InBot se estableció y comenzó a ensamblar robots para todos, increíblemente para todos.

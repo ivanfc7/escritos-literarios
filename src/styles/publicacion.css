@@ -57,7 +57,8 @@
 
 .lectura-titulo {
     font-family: var(--font-serif);
-    font-size: 3rem;
+    font-size: 2rem;
+    text-align: center;
     color: var(--text-main);
     line-height: 1.2;
     margin: 0 0 1rem 0;

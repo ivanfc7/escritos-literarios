@@ -30,7 +30,7 @@ const linkRegreso = esPoema ? '/poema' : '/cuento';
 				</div>
 				<div class="prose">
 					<header class="lectura-header">
-						<h1 class="lectura-titulo">{title}</h1>
+						{description && <p class="lectura-sinopsis">{description}</p>}
 						<div class="meta-fecha">
 							<FormattedDate date={pubDate} />
 							{updatedDate && (
@@ -39,9 +39,9 @@ const linkRegreso = esPoema ? '/poema' : '/cuento';
 								</span>
 							)}
 						</div>
-						{description && <p class="lectura-sinopsis">{description}</p>}
 						<hr class="divisor-lectura" />
 					</header>
+					<h2 class="lectura-titulo">{title}</h2> <br>
 					<div class={esPoema? "contenido-markdown-poema":"contenido-markdown-cuento"}>
 						<slot />
 					</div>
