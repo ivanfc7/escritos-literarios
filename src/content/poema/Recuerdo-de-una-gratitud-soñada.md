@@ -5,7 +5,7 @@ El poema intenta expresar los sentimientos más profundos de amistad; donde se r
 pubDate: 'Jul 16 2026'
 pubIn: 'Revista Narrativa'
 pubLink: 'https://www.facebook.com/share/p/18e3i9LW45/'
-heroImage: '../../assets/ilustraciones-escritos/poema-img-4.webp'
+heroImage: '../../assets/ilustraciones-escritos/poema-img-4.jpg'
 ---
 
 A veces siento que me mantuve indiferente.

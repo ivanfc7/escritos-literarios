@@ -5,7 +5,7 @@ Tomando la perspectiva de la Tierra , el poema intenta plasmar el impacto de la 
 pubDate: 'Feb 16 2026'
 pubIn: 'Revista Narrativa'
 pubLink: 'https://www.facebook.com/share/p/1Cn5JgLYtM/'
-heroImage: '../../assets/ilustraciones-escritos/poema-img-1.webp'
+heroImage: '../../assets/ilustraciones-escritos/poema-img-1.jpg'
 ---
 
 Sola en el vasto y negruzco firmamento.

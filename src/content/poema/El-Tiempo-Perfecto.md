@@ -5,7 +5,7 @@ El poema aborda en pocas palabras el concepto abstracto del tiempo, en especial 
 pubDate: 'Jan 15 2026'
 pubIn: 'Revista Narrativa'
 pubLink: 'https://www.facebook.com/share/p/1CCDkjgtym/'
-heroImage: '../../assets/ilustraciones-escritos/poema-img-2.webp'
+heroImage: '../../assets/ilustraciones-escritos/poema-img-2.jpg'
 ---
 
 El tiempo perfecto,

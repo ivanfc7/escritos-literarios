@@ -5,7 +5,7 @@ Tratándose del primer publicado del autor, la primera versión presenta leves d
 pubDate: 'Dec 25 2025'
 pubIn: 'Elipsis Digital'
 pubLink: 'https://www.facebook.com/share/p/1D4fTGVtFY/'
-heroImage: '../../assets/ilustraciones-escritos/cuento-img-1.webp'
+heroImage: '../../assets/ilustraciones-escritos/cuento-img-1.jpg'
 ---
 
 Diciembre.

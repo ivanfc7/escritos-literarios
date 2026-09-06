@@ -4,7 +4,7 @@ description: '«A través de los años» es un poema publicado el 15 de junio de
 pubDate: 'Jun 15 2026'
 pubIn: 'Revista Narrativa'
 pubLink: 'https://www.facebook.com/share/p/1EiYNU3p39/'
-heroImage: '../../assets/ilustraciones-escritos/poema-img-3.webp'
+heroImage: '../../assets/ilustraciones-escritos/poema-img-3.jpg'
 ---
 
 Existieron silencios;

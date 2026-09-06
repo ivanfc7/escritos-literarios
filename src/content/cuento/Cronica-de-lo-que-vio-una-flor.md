@@ -5,7 +5,7 @@ Partiendo desde el pensamiento de lo que sucede cuando nadie observa, el microre
 pubDate: 'Aug 22 2026'
 pubIn: 'Minificción'
 pubLink: 'https://minificcion.com/mientras-nadie-mira/con/fbp'
-heroImage: '../../assets/ilustraciones-escritos/cuento-img-3.webp' 
+heroImage: '../../assets/ilustraciones-escritos/cuento-img-2.jpg' 
 ---
 
 Ahí va volando una abeja silvestre, y en su sigiloso actuar, una inquietud está presente en ella. A donde va solo esta ella, pasan horas e incluso días y solo esta ella. 
