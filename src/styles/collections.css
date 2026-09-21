@@ -72,14 +72,48 @@
   flex-grow: 1; /* Empuja el botón "Leer más" siempre al fondo */
 }
 
-/* La fecha */
+/* Contenedor principal de metadatos */
+.contenido-tarjeta .meta-tarjeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* Controla la distancia general entre fecha, punto y tiempo */
+  margin-bottom: 0.8rem;
+}
+
+/* La Fecha: Protagonista y formal */
 .contenido-tarjeta .date {
   font-family: var(--font-sans);
   font-size: 0.8rem;
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 0 0 0.8rem 0;
+  margin: 0;
+}
+
+/* Punto separador discreto */
+.contenido-tarjeta .meta-separador {
+  font-size: 0.75rem;
+  color: var(--border-color, #aaa);
+  opacity: 0.6;
+}
+
+/* Tiempo de lectura: Complementario, sutil y armónico */
+.contenido-tarjeta .tiempo-lectura {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-muted); 
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem; /* Separación entre el reloj y el texto */
+  font-style: normal;
+}
+
+/* Icono del reloj */
+.contenido-tarjeta .tiempo-lectura i {
+  font-size: 0.75rem;
+  opacity: 0.8;
 }
 
 /* Título del cuento/poema */
