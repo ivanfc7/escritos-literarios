@@ -1,7 +1,6 @@
 ---
 title: 'Recuerdo de una gratitud soñada'
-description: '«Recuerdo de una gratitud soñada» es un poema publicado el 16 de julio de 2026 en la revista digital Narrativa. 
-El poema intenta expresar los sentimientos más profundos de amistad; donde se refleja la importancia de los recuerdos, las palabras y la presencia misma de una persona que ha regalado una bella amistad.'
+description: '«Recuerdo de una gratitud soñada», un poema más que se inspira en la amistad, en la importancia de los recuerdos, las palabras, la presencia de una persona que ha regalado una bella amistad. Publicado en julio de 2026 en la revista digital Narrativa.'
 pubDate: 'Jul 16 2026'
 pubIn: 'Revista Narrativa'
 pubLink: 'https://www.facebook.com/share/p/18e3i9LW45/'

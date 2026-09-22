@@ -51,8 +51,8 @@ const { page } = Astro.props;
 						<li class="tarjeta-escrito">
 							<a href={`/${collections}/${post.id}/`} class="enlace-tarjeta">
 								{post.data.heroImage && (
-									<div class="imagen-escrito">
-										<Image width={520} height={320} src={post.data.heroImage} alt="Ilustracion" />
+									<div class="imagen-tarjeta">
+										<Image width={520} height={320} src={post.data.heroImage} alt="Ilustracion" class="imagen-post" />
 									</div>
 								)}
 								<div class="contenido-tarjeta">

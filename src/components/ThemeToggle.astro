@@ -13,7 +13,7 @@ const themes = [
     <i class="fa-solid fa-palette"></i>
   </button>
 
-  <ul class="dropdown-menu" id="theme-menu" role="listbox">
+  <ul class="dropdown-menu" id="theme-menu" role="listbox" aria-label="Menu de temas">
     {themes.map(theme => (
       <li role="option" data-value={theme.value} class="theme-option">
         <i class={`fa-solid ${theme.icon}`}></i>

@@ -193,6 +193,28 @@
     transform: translateX(-4px);  /* Mueve la flechita a la izquierda */
 }
 
+.btn-copiar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color, #ccc);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-main);
+    transition: all 0.2s ease;
+}
+  
+.btn-copiar-link:hover,
+.btn-copiar-link.copiado {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .lectura-titulo {

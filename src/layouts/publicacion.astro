@@ -57,6 +57,12 @@ const linkRegreso = esPoema ? '/poema' : '/cuento';
 						<a href={linkRegreso} class="enlace-retorno">
 							<span class="flecha">&larr;</span> {textoRegreso}
 						</a>
+						<div class="acciones-publicacion">
+							<button class="btn-copiar-link" onclick="copiarEnlace(this, window.location.href)">
+								<i class="fa-regular fa-share-from-square"></i>
+								<span>Compartir</span>
+							</button>
+						</div>
 					</nav>
 				</div>
 			</article>
@@ -64,3 +70,19 @@ const linkRegreso = esPoema ? '/poema' : '/cuento';
 		<Footer />
 	</body>
 </html>
+<script is:inline>
+	function copiarEnlace(btn, url) {
+	  navigator.clipboard.writeText(url).then(() => {
+		const texto = btn.querySelector('span');
+		const textoOriginal = texto.textContent;
+		
+		btn.classList.add('copiado');
+		texto.textContent = '¡Enlace copiado!';
+		
+		setTimeout(() => {
+		  btn.classList.remove('copiado');
+		  texto.textContent = textoOriginal;
+		}, 2000);
+	  });
+	}
+  </script>

@@ -1,6 +1,6 @@
 ---
 title: 'Crónica de lo que vio una flor'
-description: '«Crónica de lo que vio una flor» es un microrelato publicado en la antología "Mientras Nadie Mira" de la Biblioteca Digital Minificcion en agosto del 2026. 
+description: '«Crónica de lo que vio una flor» es un microrelato publicado en la antología "Mientras Nadie Mira" de la Biblioteca Digital Minificción en agosto del 2026. 
 Partiendo desde el pensamiento de lo que sucede cuando nadie observa, el microrelato narra la vida de una abeja silvestre.'
 pubDate: 'Aug 22 2026'
 pubIn: 'Minificción'
