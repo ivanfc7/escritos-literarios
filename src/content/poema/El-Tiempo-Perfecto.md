@@ -1,6 +1,6 @@
 ---
 title: 'El Tiempo Perfecto'
-description: '«El Tiempo Perfecto» es un poema que nace de un sola palabra: el tiempo. 
+description: '«El Tiempo Perfecto» es un poema que nace de una sola idea: un tiempo considerado "perfecto". 
 Publicado en enero de 2026 en la revista digital Narrativa.'
 pubDate: 'Jan 15 2026'
 pubIn: 'Revista Narrativa'
