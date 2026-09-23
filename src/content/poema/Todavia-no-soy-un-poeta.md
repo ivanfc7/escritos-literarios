@@ -1,6 +1,6 @@
 ---
 title: 'Todavía no soy un poeta'
-description: '«Todavía no soy un poeta» es un poema que nace de una pregunta: ¿Qué se necesita para escribir un poema?.'
+description: '«Todavía no soy un poeta» es un poema que nace de una pregunta: ¿En qué momento uno empieza a escribir un poema?.'
 pubDate: 'Sep 20 2026'
 heroImage: '../../assets/ilustraciones-escritos/poema-img-5.jpg'
 ---
