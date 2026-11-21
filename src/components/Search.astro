@@ -1,0 +1,154 @@
+---
+interface Props {
+  /** Si se omite, busca en todas las categorías. Ej: "cuentos" o "poemas" */
+  category?: string;
+  placeholder?: string;
+}
+import '../styles/search.css'
+const { 
+  category = 'all', 
+  placeholder = 'Buscar por título, palabra o verso...' 
+} = Astro.props;
+---
+
+<editorial-search data-category={category} class="search-wrapper">
+  <div class="search-input-box">
+    <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input 
+      type="search" 
+      class="search-input" 
+      placeholder={placeholder} 
+      aria-label={placeholder}
+      autocomplete="off"
+    />
+    <kbd class="search-shortcut">/</kbd>
+  </div>
+
+  <div class="search-results" hidden></div>
+</editorial-search>
+
+<script>
+  import Fuse from 'fuse.js';
+
+  interface SearchItem {
+    slug: string;
+    collection: string;
+    url: string;
+    title: string;
+    description: string;
+    content: string;
+  }
+
+  // Caché global en memoria para evitar múltiples peticiones si hay 2 buscadores en la misma página
+  let cachedData: SearchItem[] | null = null;
+
+  class EditorialSearch extends HTMLElement {
+    private input: HTMLInputElement;
+    private resultsContainer: HTMLElement;
+    private category: string;
+    private fuse: Fuse<SearchItem> | null = null;
+
+    constructor() {
+      super();
+      this.input = this.querySelector('.search-input')!;
+      this.resultsContainer = this.querySelector('.search-results')!;
+      this.category = this.dataset.category || 'all';
+      this.initEvents();
+    }
+
+    private async loadIndex() {
+      if (this.fuse) return;
+
+      if (!cachedData) {
+        const res = await fetch('/search-index.json');
+        cachedData = await res.json();
+      }
+
+      // Filtrar por categoría si el componente fue instanciado para una específica
+      const filteredData = this.category === 'all'
+        ? cachedData!
+        : cachedData!.filter(item => item.collection === this.category);
+
+      this.fuse = new Fuse(filteredData, {
+        keys: [
+          { name: 'title', weight: 0.5 },
+          { name: 'tags', weight: 0.2 },
+          { name: 'description', weight: 0.2 },
+          { name: 'content', weight: 0.1 }
+        ],
+        threshold: 0.35, // Tolerancia a errores tipográficos y acentos
+        ignoreLocation: true,
+        minMatchCharLength: 2,
+      });
+    }
+
+    private initEvents() {
+      // Carga diferida al interactuar
+      this.input.addEventListener('focus', () => this.loadIndex(), { once: true });
+
+      this.input.addEventListener('input', async (e) => {
+        await this.loadIndex();
+        const query = (e.target as HTMLInputElement).value.trim();
+        this.performSearch(query);
+      });
+
+      // Cerrar resultados al hacer clic fuera
+      document.addEventListener('click', (e) => {
+        if (!this.contains(e.target as Node)) {
+          this.resultsContainer.hidden = true;
+        }
+      });
+
+      // Atajo de teclado "/" para enfocar el buscador
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== this.input && !['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement).tagName)) {
+          e.preventDefault();
+          this.input.focus();
+        }
+        if (e.key === 'Escape') {
+          this.resultsContainer.hidden = true;
+          this.input.blur();
+        }
+      });
+    }
+
+    private performSearch(query: string) {
+      if (!query || !this.fuse) {
+        this.resultsContainer.hidden = true;
+        this.resultsContainer.innerHTML = '';
+        return;
+      }
+
+      const results = this.fuse.search(query).slice(0, 7);
+
+      if (results.length === 0) {
+        this.resultsContainer.innerHTML = `
+          <div class="search-empty">No se encontraron textos para "<strong>${this.escapeHTML(query)}</strong>"</div>
+        `;
+      } else {
+        this.resultsContainer.innerHTML = results.map(({ item }) => `
+          <a href="${item.url}" class="search-item">
+            <div class="search-item-header">
+              <span class="search-item-title">${this.escapeHTML(item.title)}</span>
+              <span class="search-badge">${this.escapeHTML(item.collection)}</span>
+            </div>
+            ${item.description ? `<p class="search-item-desc">${this.escapeHTML(item.description)}</p>` : ''}
+          </a>
+        `).join('');
+      }
+
+      this.resultsContainer.hidden = false;
+    }
+
+    private escapeHTML(str: string) {
+      return str.replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      }[tag] || tag));
+    }
+  }
+
+  customElements.define('editorial-search', EditorialSearch);
+</script>

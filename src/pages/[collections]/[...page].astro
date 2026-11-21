@@ -8,6 +8,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getReadingTime } from '../../utils/readingTime';
 import { Image } from 'astro:assets';
+import Search from '../../components/Search.astro';
 import '../../styles/collections.css';
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -45,6 +46,7 @@ const { page } = Astro.props;
 	<body>
 		<Header />
 		<main class="site-colecciones">
+			<Search category={collections} placeholder="Buscar..." />
 			<section class="lista-escritos-container">
 				<ul class="grid-escritos">
 					{page.data.map((post) => (
