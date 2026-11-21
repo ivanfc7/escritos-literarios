@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import '../styles/portada.css';
+import iconoWeb from '../assets/oasisliterario.png';
 ---
 
 <!doctype html>
@@ -15,8 +16,13 @@ import '../styles/portada.css';
 		<Header />
 		<main class="portada-container">
 			<section class="hero-literario">
+				<img
+					src={iconoWeb.src}
+					alt="Icono de Oasis Literario"
+					class="site-icon"
+				/>
 				<span class="bienvenida">Bienvenido a</span>
-				<h1 class="site-titulo">Escritos Literarios</h1>
+				<h1 class="site-titulo">Oasis Literario</h1>
 				<hr class="separador-sutil">
 				<p class="site-description">La literatura es el espacio que invita al ser humano a sumergirse en nuevos mundos, vidas diferentes, aventuras y ficciones, sobre todo, puede invitar a conocer los sentimientos más profundos del alma humana. A través de relatos y poemas, este espacio intenta mostrar aquellos pensares que han sido plasmados en hojas digitales y que durante un tiempo han permanecido guardados en el cajón de los escritos.</p>
 			</section>

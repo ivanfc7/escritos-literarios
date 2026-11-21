@@ -59,6 +59,88 @@
     text-align: end;
 }
 
+.site-icon {
+  display: block;
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.10));
+}
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 600px) {
+  .site-icon {
+      width: 85px;
+      height: 85px;
+      margin-bottom: 15px;
+  }
+}
+
+
+.site-icon {
+  display: block;
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+
+  animation:
+      aparecerIcono 1.2s ease-out forwards,
+      flotarIcono 4s ease-in-out 1.2s infinite;
+
+  filter: drop-shadow(0 4px 8px rgba(45, 87, 44, 0.18));
+  transition: filter 0.4s ease;
+}
+
+/* Aparición progresiva */
+@keyframes aparecerIcono {
+  0% {
+      opacity: 0;
+      transform: translateY(25px) scale(0.85);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+  }
+}
+
+/* Movimiento flotante */
+@keyframes flotarIcono {
+  0%, 100% {
+      transform: translateY(0);
+      filter: drop-shadow(0 4px 8px rgba(45, 87, 44, 0.18));
+  }
+
+  50% {
+      transform: translateY(-9px);
+      filter: drop-shadow(0 10px 12px rgba(45, 87, 44, 0.28));
+  }
+}
+
+/* Interacción al pasar el cursor */
+.site-icon:hover {
+  filter: drop-shadow(0 8px 14px rgba(45, 87, 44, 0.35));
+}
+
+/* Adaptación móvil */
+@media (max-width: 600px) {
+  .site-icon {
+      width: 85px;
+      height: 85px;
+  }
+}
+
+/* Accesibilidad: reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .site-icon {
+      animation: none;
+      opacity: 1;
+      transform: none;
+  }
+}
+
 /* Animación de entrada */
 @keyframes fadeIn {
     from {

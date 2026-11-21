@@ -3,6 +3,6 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-	site: 'https://escritos-literarios.vercel.app',
+	site: 'https://oasisliterario.vercel.app',
 	integrations: [mdx(), sitemap()],
 });

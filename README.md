@@ -1,4 +1,4 @@
-# Escritos Literarios: Blog literario
+# Oasis Literario: Blog literario
 
 Caracteristicas:
 
@@ -32,4 +32,4 @@ El contenido de los cuentos y poemas junto a sus imagenes desde las carpetas:
 
 Despliegue realizado en Vercel
 
-[Escritos Literarios](https://escritos-literarios.vercel.app/) 
+[Oasis Literario](https://oasisliterario.vercel.app/) 
