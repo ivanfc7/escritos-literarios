@@ -1,6 +1,6 @@
 /* Contenedor principal */
 .site-colecciones {
-  max-width: 1201px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 3rem 2rem;
   background-color: var(--bg-color);
